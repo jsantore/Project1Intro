@@ -1,10 +1,12 @@
 import secrets
 import requests
 
+
 def get_data():
     all_data = []
     for page in range(5):
-        response = requests.get(f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=school.name,school.state,2018.student.size&api_key={secrets.api_key}&page={page}")
+        response = requests.get(f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant="
+                                f"2,3&fields=school.name,school.state,2018.student.size&api_key={secrets.api_key}&page={page}")
         if response.status_code != 200:
             print("error getting data!")
             exit(-1)
